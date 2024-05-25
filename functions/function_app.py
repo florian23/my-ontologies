@@ -4,6 +4,8 @@ from azure.functions import HttpRequest, HttpResponse
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.containerinstance import ContainerInstanceManagementClient
 
+@app.function_name(name="HttpTrigger1")
+@app.route(route="api")
 def main(req: HttpRequest) -> HttpResponse:
     action = req.params.get('action')
     credential = DefaultAzureCredential()
